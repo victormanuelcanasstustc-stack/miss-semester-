@@ -1,0 +1,7 @@
+banano
+manzana
+manzana
+pera
+pera
+uva
+Lista de frutas ordenadas

@@ -1,0 +1,40 @@
+    1  bash --version
+    2  pwd
+    3  cd /c/Users/acer/Desktop/miss-semester-
+    4  pwd
+    5  ls -la
+    6  code .
+    7  echo "$SHELL"
+    8  for cmd in find sort awk xargs curl jq; do     command -v "$cmd" || echo "$cmd: no instalado"; done
+    9  find . -type f -printf '%s\t%p\n' | head
+   10  command -v numfmt
+   11  mkdir -p dia01/pruebas/subcarpeta
+   12  echo "Este es un archivo pequeño" > dia01/pruebas/pequeno.txt
+   13  printf 'A%.0s' {1..1000} > dia01/pruebas/mediano.txt
+   14  printf 'B%.0s' {1..10000} > dia01/pruebas/subcarpeta/grande.txt
+   15  echo "Contenido de Python" > dia01/pruebas/programa.py
+   16  echo "Contenido de JavaScript" > dia01/pruebas/app.js
+   17  echo "Otro archivo de texto" > dia01/pruebas/subcarpeta/otro.txt
+   18  find dia01/pruebas -type f
+   19  find dia01/pruebas -type f -printf '%s\t%p\n' | sort -nr | head -n 10 | numfmt --field=1 --to=iec-i --suffix=B
+   20  find dia01/pruebas -type f -print | awk '
+{
+    n = split($0, partes, "/")
+    nombre = partes[n]
+
+    if (nombre !~ /\./ || nombre ~ /^\.[^.]+$/) {
+        extension = "[sin_extension]"
+    } else {
+        sub(/^.*\./, "", nombre)
+        extension = "." tolower(nombre)
+    }
+
+    cantidad[extension]++
+}
+END {
+    for (extension in cantidad)
+        printf "%d\t%s\n", cantidad[extension], extension
+}' | sort -k1,1nr
+   21  ls -lah dia01/evidencias
+   22  history
+   23  history > dia01/evidencias/04_historial_comandos.txt

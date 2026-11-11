@@ -1,0 +1,3 @@
+La programación con Python es interesante
+Python permite automatizar tareas
+Linux permite trabajar desde la terminal
