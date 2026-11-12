@@ -45,3 +45,38 @@ La conexión se comprobó con ssh -T git@github.com y fue autenticada correctame
 
 Finalmente, se configuró el remoto origin mediante SSH para realizar
 operaciones de Git sin utilizar autenticación HTTPS.
+
+## 4. Multiplexor de terminal: tmux
+
+Se instaló MSYS2 y, mediante su administrador de paquetes pacman,
+se instaló tmux. La versión comprobada fue tmux 3.8.
+
+Se creó una sesión llamada missing-semester con:
+
+tmux new -s missing-semester
+
+Se utilizaron los siguientes atajos:
+- Ctrl + B y %: dividir verticalmente.
+- Ctrl + B y ": dividir horizontalmente.
+- Ctrl + B y o: cambiar entre paneles.
+- Ctrl + B y una flecha: seleccionar un panel específico.
+
+Se organizaron tres paneles con funciones diferentes:
+1. Panel superior izquierdo: consultar archivos y carpetas.
+2. Panel inferior izquierdo: localizar archivos de la actividad.
+3. Panel derecho: consultar la ubicación y fecha del sistema.
+
+En MSYS2, los comandos git no estaban disponibles, por lo que
+se utilizaron comandos de navegación y consulta de archivos.
+Las operaciones de Git se realizaron desde Git Bash.
+
+La evidencia visual se encuentra en:
+evidencias/03_tmux_tres_paneles.png
+
+## 5. Carga automática de alias
+
+Se agregó la carga de dia02/aliases.sh al archivo ~/.bashrc.
+El archivo ~/.bash_profile ya carga ~/.bashrc al iniciar Git Bash.
+
+Se recargó la configuración con source ~/.bashrc y se verificó
+que los ocho alias estuvieran disponibles.
