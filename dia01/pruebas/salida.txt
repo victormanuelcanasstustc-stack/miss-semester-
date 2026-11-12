@@ -1,0 +1,11 @@
+dia01/pruebas:
+app.js
+errores.txt
+frutas.txt
+frutas_ordenadas.txt
+mediano.txt
+pequeno.txt
+programa.py
+salida.txt
+subcarpeta/
+texto_busqueda.txt

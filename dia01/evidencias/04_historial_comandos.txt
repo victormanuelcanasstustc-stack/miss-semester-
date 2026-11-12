@@ -18,23 +18,812 @@
    18  find dia01/pruebas -type f
    19  find dia01/pruebas -type f -printf '%s\t%p\n' | sort -nr | head -n 10 | numfmt --field=1 --to=iec-i --suffix=B
    20  find dia01/pruebas -type f -print | awk '
-{
-    n = split($0, partes, "/")
-    nombre = partes[n]
+   21  {
+   22      n = split($0, partes, "/")
+   23      nombre = partes[n]
+   24      if (nombre !~ /\./ || nombre ~ /^\.[^.]+$/) {
+   25          extension = "[sin_extension]"
+   26      } else {
+   27          sub(/^.*\./, "", nombre)
+   28          extension = "." tolower(nombre)
+   29      }
+   30      cantidad[extension]++
+   31  }
+   32  END {
+   33      for (extension in cantidad)
+   34          printf "%d\t%s\n", cantidad[extension], extension
+   35  }' | sort -k1,1nr
+   36  ls -lah dia01/evidencias
+   37  history
+   38  history > dia01/evidencias/04_historial_comandos.txt
+   39  cat dia01/evidencias/04_historial_comandos.txt
+   40  find . -type f -not -path './.git/*' | sort
+   41  find . -type f -name ".py" -not -path './.git/'
+   42  find . -type f -name ".txt" -not -path './.git/'
+   43  find . -type f -name "*.py" -not -path './.git/*'
+   44  find . -type f -name "*.txt" -not -path './.git/*'
+   45  cat dia01/comandos.sh
+   46  find dia01/pruebas -type f -size +500c
+   47  find dia01/pruebas -type f -size -100c
+   48  [200~cat dia01/comandos.sh
+   49  cat dia01/comandos.sh
+   50  cat dia01/notas.md
+   51  cat dia01/comandos.sh
+   52  cat dia01/notas.md
+   53  echo "La programación con Python es interesante" > dia01/pruebas/texto_busqueda.txt
+   54  echo "Python permite automatizar tareas" >> dia01/pruebas/texto_busqueda.txt
+   55  echo "Linux permite trabajar desde la terminal" >> dia01/pruebas/texto_busqueda.txt
+   56  grep -n "Python" dia01/pruebas/texto_busqueda.txt
+   57  grep -n "Linux" dia01/pruebas/texto_busqueda.txt
+   58  cat dia01/comandos.sh
+   59  cat dia01/notas.md
+   60  wc -l dia01/pruebas/texto_busqueda.txt
+   61  wc -w dia01/pruebas/texto_busqueda.txt
+   62  wc -m dia01/pruebas/texto_busqueda.txt
+   63  tail -n 12 dia01/comandos.sh
+   64  tail -n 12 dia01/notas.md
+   65  printf "pera\nmanzana\npera\nuva\nmanzana\nbanano\n" > dia01/pruebas/frutas.txt
+   66  sort dia01/pruebas/frutas.txt
+   67  sort dia01/pruebas/frutas.txt | uniq
+   68  sort dia01/pruebas/frutas.txt | uniq -c
+   69  tail -n 12 dia01/comandos.sh
+   70  tail -n 15 dia01/notas.md
+   71  sort dia01/pruebas/frutas.txt > dia01/pruebas/frutas_ordenadas.txt
+   72  echo "Lista de frutas ordenadas" >> dia01/pruebas/frutas_ordenadas.txt
+   73  cat dia01/pruebas/frutas_ordenadas.txt
+   74  wc -l dia01/pruebas/frutas_ordenadas.txt
+   75  nombre="Victor"
+   76  echo "Hola, $nombre"
+   77  [200~fecha=$(date +%Y-%m-%d)
+   78  nombre="Victor"
+   79  echo "Hola, $nombre"
+   80  fecha=$(date +%Y-%m-%d)
+   81  echo "Fecha de ejecución: $fecha"
+   82  alias ll='ls -lah'
+   83  ll
+   84  alias buscarpy='find . -type f -name "*.py" -not -path "./.git/*"'
+   85  buscarpy
+   86  echo "alias ll='ls -lah'" >> ~/.bashrc
+   87  echo "alias buscarpy='find . -type f -name \"*.py\" -not -path \"./.git/*\"'" >> ~/.bashrc
+   88  source ~/.bashrc
+   89  alias ll
+   90  alias buscarpy
+   91  export PROYECTO="missing-semester"
+   92  echo "$PROYECTO"
+   93  printenv PROYECTO
+   94  env | grep PROYECTO
+   95  cat >> dia01/comandos.sh <<'EOF'
+   96  # Redireccionar la salida de un comando a un archivo
+   97  sort dia01/pruebas/frutas.txt > dia01/pruebas/frutas_ordenadas.txt
+   98  # Agregar texto al final de un archivo
+   99  echo "Lista de frutas ordenadas" >> dia01/pruebas/frutas_ordenadas.txt
+  100  # Crear y utilizar variables
+  101  nombre="Victor"
+  102  echo "Hola, $nombre"
+  103  # Sustitución de comandos
+  104  fecha=$(date +%Y-%m-%d)
+  105  echo "Fecha de ejecución: $fecha"
+  106  # Crear y utilizar alias
+  107  alias ll='ls -lah'
+  108  alias buscarpy='find . -type f -name "*.py" -not -path "./.git/*"'
+  109  # Crear y consultar una variable de entorno
+  110  export PROYECTO="missing-semester"
+  111  echo "$PROYECTO"
+  112  printenv PROYECTO
+  113  env | grep PROYECTO
+  114  EOF
+  115  cat >> dia01/notas.md <<'EOF'
+  116  ## Redirección de salida
+  117  Se utilizó el operador > para guardar el resultado del comando sort en un archivo.
+  118  También se utilizó >> para agregar un texto al final del archivo sin reemplazar su contenido.
+  119  El archivo frutas_ordenadas.txt contiene las frutas ordenadas y un título.
+  120  ## Variables y sustitución de comandos
+  121  Se creó la variable nombre y se mostró su contenido utilizando echo.
+  122  También se utilizó la sustitución de comandos $(...) para guardar la fecha actual en una variable.
+  123  ## Alias
+  124  Se crearon dos alias para facilitar el uso de comandos frecuentes:
+  125  - ll: muestra los archivos con detalles y tamaños legibles.
+  126  - buscarpy: busca archivos con extensión .py.
+  127  Los alias también se guardaron en el archivo ~/.bashrc para utilizarlos en futuras terminales.
+  128  ## Variables de entorno
+  129  Se creó la variable de entorno PROYECTO con el valor missing-semester mediante export.
+  130  Se comprobó su contenido utilizando echo, printenv y env con grep.
+  131  Los tres comandos mostraron correctamente la variable.
+  132  EOF
+  133  tail -n 45 dia01/comandos.sh
+  134  tail -n 45 dia01/notas.md
+  135  cat dia01/comandos.s
+  136  cat dia01/notas.md
+  137  cat > dia01/comandos.sh <<'EOF'
+  138  # Buscar archivos Python
+  139  find . -type f -name "*.py" -not -path './.git/*'
+  140  # Buscar archivos de texto
+  141  find . -type f -name "*.txt" -not -path './.git/*'
+  142  # Buscar archivos mayores de 500 bytes
+  143  find dia01/pruebas -type f -size +500c
+  144  # Buscar archivos menores de 100 bytes
+  145  find dia01/pruebas -type f -size -100c
+  146  # Buscar palabras y mostrar el número de línea
+  147  grep -n "Python" dia01/pruebas/texto_busqueda.txt
+  148  grep -n "Linux" dia01/pruebas/texto_busqueda.txt
+  149  # Contar líneas, palabras y caracteres
+  150  wc -l dia01/pruebas/texto_busqueda.txt
+  151  wc -w dia01/pruebas/texto_busqueda.txt
+  152  wc -m dia01/pruebas/texto_busqueda.txt
+  153  # Ordenar frutas alfabéticamente
+  154  sort dia01/pruebas/frutas.txt
+  155  # Eliminar frutas duplicadas
+  156  sort dia01/pruebas/frutas.txt | uniq
+  157  # Contar las apariciones de cada fruta
+  158  sort dia01/pruebas/frutas.txt | uniq -c
+  159  # Redireccionar la salida a un archivo
+  160  sort dia01/pruebas/frutas.txt > dia01/pruebas/frutas_ordenadas.txt
+  161  # Agregar un título sin borrar el contenido anterior
+  162  echo "Lista de frutas ordenadas" >> dia01/pruebas/frutas_ordenadas.txt
+  163  # Mostrar el contenido del archivo
+  164  cat dia01/pruebas/frutas_ordenadas.txt
+  165  # Contar las líneas del archivo
+  166  wc -l dia01/pruebas/frutas_ordenadas.txt
+  167  # Declarar y utilizar una variable
+  168  nombre="Victor"
+  169  echo "Hola, $nombre"
+  170  # Obtener la fecha mediante sustitución de comandos
+  171  fecha=$(date +%Y-%m-%d)
+  172  echo "Fecha de ejecución: $fecha"
+  173  # Crear alias
+  174  alias ll='ls -lah'
+  175  alias buscarpy='find . -type f -name "*.py" -not -path "./.git/*"'
+  176  # Crear y consultar una variable de entorno
+  177  export PROYECTO="missing-semester"
+  178  echo "$PROYECTO"
+  179  printenv PROYECTO
+  180  env | grep PROYECTO
+  181  EOF
+  182  cat > dia01/notas.md <<'EOF'
+  183  ## Búsqueda de archivos por tamaño
+  184  Se utilizaron los comandos find y size para localizar archivos según su tamaño.
+  185  - Archivos mayores de 500 bytes: mediano.txt y grande.txt.
+  186  - Archivos menores de 100 bytes: app.js, pequeno.txt, programa.py y otro.txt.
+  187  Los dos comandos se ejecutaron correctamente en Git Bash.
+  188  ## Búsqueda de texto con grep
+  189  Se creó un archivo de prueba con tres líneas de texto.
+  190  - La búsqueda de Python encontró dos coincidencias en las líneas 1 y 2.
+  191  - La búsqueda de Linux encontró una coincidencia en la línea 3.
+  192  Se utilizó grep -n para mostrar las coincidencias junto con sus números de línea.
+  193  ## Conteo de líneas, palabras y caracteres con wc
+  194  Se utilizó el comando wc para analizar el archivo texto_busqueda.txt.
+  195  - Líneas: 3.
+  196  - Palabras: 16.
+  197  - Caracteres: 117.
+  198  Se comprobaron las opciones -l, -w y -m.
+  199  ## Ordenamiento y eliminación de duplicados
+  200  Se creó un archivo con seis frutas, algunas repetidas.
+  201  - sort permitió ordenar las frutas alfabéticamente.
+  202  - uniq eliminó las frutas repetidas.
+  203  - uniq -c mostró cuántas veces aparece cada fruta.
+  204  Resultados:
+  205  - Banano: 1.
+  206  - Manzana: 2.
+  207  - Pera: 2.
+  208  - Uva: 1.
+  209  ## Redirección de salida
+  210  Se practicó el uso de los operadores de redirección.
+  211  - El operador > permitió guardar la lista ordenada en un archivo.
+  212  - El operador >> permitió agregar un título sin eliminar el contenido anterior.
+  213  - El comando cat mostró el contenido guardado.
+  214  - El comando wc -l confirmó que el archivo tiene 7 líneas.
+  215  ## Variables y sustitución de comandos en Bash
+  216  Se realizaron pruebas con variables y sustitución de comandos.
+  217  - Se creó la variable nombre con el valor Victor.
+  218  - Se utilizó $nombre para mostrar su contenido.
+  219  - Se utilizó $(date +%Y-%m-%d) para obtener la fecha actual.
+  220  - La fecha obtenida fue 2026-11-11.
+  221  Ambas operaciones funcionaron correctamente.
+  222  ## Creación de alias en Bash
+  223  Se crearon dos alias para simplificar comandos frecuentes.
+  224  - ll: ejecuta ls -lah para mostrar los archivos con información detallada.
+  225  - buscarpy: busca archivos con extensión .py dentro del proyecto.
+  226  Los alias se guardaron en ~/.bashrc para mantenerlos disponibles en futuras sesiones.
+  227  ## Variables de entorno
+  228  Se creó la variable de entorno PROYECTO con el valor missing-semester mediante export.
+  229  Se comprobó su contenido utilizando:
+  230  - echo "$PROYECTO"
+  231  - printenv PROYECTO
+  232  - env | grep PROYECTO
+  233  Los tres comandos mostraron correctamente la variable.
+  234  EOF
+  235  cat dia01/comandos.sh
+  236  cat dia01/notas.md
+  237  acer@DESKTOP-B5AC47R MINGW64 ~/Desktop/miss-semester- (main)
+  238  $ cat dia01/comandos.sh
+  239  # Buscar archivos Python
+  240  find . -type f -name "*.py" -not -path './.git/*'
+  241  # Buscar archivos de texto
+  242  find . -type f -name "*.txt" -not -path './.git/*'
+  243  # Buscar archivos mayores de 500 bytes
+  244  find dia01/pruebas -type f -size +500c
+  245  # Buscar archivos menores de 100 bytes
+  246  find dia01/pruebas -type f -size -100c
+  247  # Buscar palabras y mostrar el número de línea
+  248  grep -n "Python" dia01/pruebas/texto_busqueda.txt
+  249  grep -n "Linux" dia01/pruebas/texto_busqueda.txt
+  250  # Contar líneas, palabras y caracteres
+  251  wc -l dia01/pruebas/texto_busqueda.txt
+  252  wc -w dia01/pruebas/texto_busqueda.txt
+  253  wc -m dia01/pruebas/texto_busqueda.txt
+  254  # Ordenar frutas alfabéticamente
+  255  sort dia01/pruebas/frutas.txt
+  256  # Eliminar frutas duplicadas
+  257  sort dia01/pruebas/frutas.txt | uniq
+  258  # Contar las apariciones de cada fruta
+  259  sort dia01/pruebas/frutas.txt | uniq -c
+  260  # Redireccionar la salida a un archivo
+  261  sort dia01/pruebas/frutas.txt > dia01/pruebas/frutas_ordenadas.txt
+  262  # Agregar un título sin borrar el contenido anterior
+  263  echo "Lista de frutas ordenadas" >> dia01/pruebas/frutas_ordenadas.txt
+  264  # Mostrar el contenido del archivo
+  265  cat dia01/pruebas/frutas_ordenadas.txt
+  266  # Contar las líneas del archivo
+  267  wc -l dia01/pruebas/frutas_ordenadas.txt
+  268  # Declarar y utilizar una variable
+  269  nombre="Victor"
+  270  echo "Hola, $nombre"
+  271  # Obtener la fecha mediante sustitución de comandos
+  272  fecha=$(date +%Y-%m-%d)
+  273  echo "Fecha de ejecuc
+  274  c
+  275  exit
+  276  cd ~
+  277  pwd
+  278  cd ~/Desktop
+  279  cd ~/Desktop/miss-semester-
+  280  cd ~/Desktop/miss-semester-
+  281  grep -n "Redireccionar la salida" dia01/comandos.sh
+  282  grep -n "^## " dia01/notas.md
+  283  bash dia01/comandos.sh
+  284  git status
+  285  git add dia01/
+  286  git status
+  287  git commit -m "Completar actividades del dia 01"
+  288  git status
+  289  git remote -v
+  290  git ls-remote --heads origin
+  291  git push -u origin main
+  292  ls -l /
+  293  ls -l dia01/pruebas
+  294  ls -ld dia01 dia01/pruebas
+  295  # Mostrar permisos y detalles de los archivos del sistema
+  296  ls -l /
+  297  # Mostrar permisos y detalles de los archivos de prueba
+  298  ls -l dia01/pruebas
+  299  # Mostrar permisos de los directorios
+  300  ls -ld dia01 dia01/pruebas
+  301  cat >> dia01/comandos.sh <<'EOF'
+  302  # Mostrar permisos y detalles de los archivos del sistema
+  303  ls -l /
+  304  # Mostrar permisos y detalles de los archivos de prueba
+  305  ls -l dia01/pruebas
+  306  # Mostrar permisos de los directorios
+  307  ls -ld dia01 dia01/pruebas
+  308  EOF
+  309  cat >> dia01/notas.md <<'EOF'
+  310  ## Permisos y detalles de archivos con ls -l
+  311  Se utilizó ls -l para consultar los permisos, propietarios, tamaños y fechas de modificación de los archivos.
+  312  - El carácter - identifica un archivo normal.
+  313  - El carácter d identifica un directorio.
+  314  - La letra r representa el permiso de lectura.
+  315  - La letra w representa el permiso de escritura.
+  316  - La letra x representa el permiso de ejecución en archivos y el acceso en directorios.
+  317  Se comprobaron los permisos de los archivos de prueba y de los directorios dia01 y dia01/pruebas.
+  318  EOF
+  319  tail -n 18 dia01/comandos.sh
+  320  tail -n 14 dia01/notas.md
+  321  echo "========== 1. ARCHIVOS DEL DIA 1 =========="
+  322  find dia01 -type f | sort
+  323  echo ""
+  324  echo "========== 2. COMANDOS PRACTICADOS =========="
+  325  grep -nE '^[a-zA-Z_].*|^#' dia01/comandos.sh
+  326  echo ""
+  327  echo "========== 3. TEMAS DOCUMENTADOS =========="
+  328  grep '^## ' dia01/notas.md
+  329  echo ""
+  330  echo "========== 4. EVIDENCIAS GUARDADAS =========="
+  331  find dia01/evidencias -type f | sort
+  332  echo ""
+  333  echo "========== 5. ESTADO DE GIT =========="
+  334  git status --short --branch
+  335  cd ~/Desktop/miss-semester-
+  336  # Crear carpeta y archivos de prueba
+  337  mkdir -p dia01/glob_pruebas
+  338  touch dia01/glob_pruebas/a.txt
+  339  touch dia01/glob_pruebas/b.txt
+  340  touch dia01/glob_pruebas/c.txt
+  341  touch dia01/glob_pruebas/file1.txt
+  342  touch dia01/glob_pruebas/file2.txt
+  343  touch dia01/glob_pruebas/file10.txt
+  344  touch dia01/glob_pruebas/imagen.png
+  345  echo "===== TODOS LOS ARCHIVOS TXT ====="
+  346  ls dia01/glob_pruebas/*.txt
+  347  echo "===== ARCHIVOS file CON UN CARACTER ====="
+  348  ls dia01/glob_pruebas/file?.txt
+  349  echo "===== ARCHIVOS a, b Y c ====="
+  350  ls dia01/glob_pruebas/{a,b,c}.txt
+  351  # Guardar los comandos
+  352  cat >> dia01/comandos.sh <<'EOF'
 
-    if (nombre !~ /\./ || nombre ~ /^\.[^.]+$/) {
-        extension = "[sin_extension]"
-    } else {
-        sub(/^.*\./, "", nombre)
-        extension = "." tolower(nombre)
-    }
+# Buscar todos los archivos TXT mediante glob
+ls dia01/glob_pruebas/*.txt
 
-    cantidad[extension]++
-}
-END {
-    for (extension in cantidad)
-        printf "%d\t%s\n", cantidad[extension], extension
-}' | sort -k1,1nr
-   21  ls -lah dia01/evidencias
-   22  history
-   23  history > dia01/evidencias/04_historial_comandos.txt
+# Buscar archivos file con un solo caracter adicional
+ls dia01/glob_pruebas/file?.txt
+
+# Buscar archivos con nombres especificos mediante expansion de llaves
+ls dia01/glob_pruebas/{a,b,c}.txt
+EOF
+
+  353  # Documentar el ejercicio
+  354  cat >> dia01/notas.md <<'EOF'
+
+## Patrones glob en Bash
+
+Se creó la carpeta glob_pruebas con archivos de diferentes nombres y extensiones.
+
+- *.txt selecciona todos los archivos terminados en .txt.
+- file?.txt selecciona archivos que comienzan por file y tienen un solo carácter adicional antes de .txt.
+- {a,b,c}.txt permite seleccionar los archivos a.txt, b.txt y c.txt.
+
+Las tres pruebas se realizaron correctamente en Git Bash.
+EOF
+
+  355  echo '===== COMILLAS SIMPLES ====='
+  356  echo 'El texto $nombre permanece literal'
+  357  echo '===== COMILLAS DOBLES ====='
+  358  nombre="Victor"
+  359  echo "Hola, $nombre"
+  360  echo '===== COMILLAS ANSI ====='
+  361  printf '%s\n' $'Precio: $5\nHola!'
+  362  echo '===== COMILLAS Y CARACTERES ====='
+  363  echo "La variable se llama \$nombre"
+  364  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 4: diferencias entre comillas
+echo 'El texto $nombre permanece literal'
+nombre="Victor"
+echo "Hola, $nombre"
+printf '%s\n' $'Precio: $5\nHola!'
+echo "La variable se llama \$nombre"
+EOF
+
+  365  cat >> dia01/notas.md <<'EOF'
+
+## Diferencias entre comillas en Bash
+
+- Las comillas simples conservan el texto literalmente.
+- Las comillas dobles permiten expandir variables como $nombre.
+- Las comillas ANSI ($'...') permiten representar caracteres especiales mediante secuencias como \n.
+- Se utilizó printf para mostrar un texto con el símbolo $, el signo ! y un salto de línea.
+
+El resultado se comprobó correctamente en Git Bash.
+EOF
+
+  366  echo "===== SEPARAR SALIDA Y ERRORES ====="
+  367  ls /nonexistent dia01/pruebas > dia01/pruebas/salida.txt 2> dia01/pruebas/errores.txt
+  368  echo "===== SALIDA NORMAL ====="
+  369  cat dia01/pruebas/salida.txt
+  370  echo "===== ERRORES ====="
+  371  cat dia01/pruebas/errores.txt
+  372  echo "===== GUARDAR AMBAS SALIDAS EN UN ARCHIVO ====="
+  373  ls /nonexistent dia01/pruebas > dia01/pruebas/salida_y_error.txt 2>&1
+  374  cat dia01/pruebas/salida_y_error.txt
+  375  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 5: separar stdout y stderr
+ls /nonexistent dia01/pruebas > dia01/pruebas/salida.txt 2> dia01/pruebas/errores.txt
+
+# Redirigir stdout y stderr al mismo archivo
+ls /nonexistent dia01/pruebas > dia01/pruebas/salida_y_error.txt 2>&1
+EOF
+
+  376  cat >> dia01/notas.md <<'EOF'
+
+## Redirección de stdout y stderr
+
+- stdout (1) representa la salida normal de un comando.
+- stderr (2) representa los mensajes de error.
+- > permite guardar la salida normal en un archivo.
+- 2> permite guardar los errores en otro archivo.
+- 2>&1 permite enviar los errores al mismo destino que stdout.
+
+Se comprobó la separación de ambas salidas y su almacenamiento conjunto.
+EOF
+
+  377  echo "===== CODIGO DE SALIDA EXITOSO ====="
+  378  true
+  379  echo $?
+  380  echo "===== CODIGO DE SALIDA CON ERROR ====="
+  381  false
+  382  echo $?
+  383  echo "===== OPERADOR AND (&&) ====="
+  384  true && echo "El primer comando tuvo exito"
+  385  echo "===== OPERADOR OR (||) ====="
+  386  false || echo "El primer comando fallo"
+  387  echo "===== COMBINACION DE OPERADORES ====="
+  388  mkdir -p dia01/pruebas/condicional && echo "Carpeta creada correctamente"
+  389  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 6: codigos de salida
+true
+echo $?
+false
+echo $?
+
+# Operadores AND y OR
+true && echo "El primer comando tuvo exito"
+false || echo "El primer comando fallo"
+
+# Combinar comandos
+mkdir -p dia01/pruebas/condicional && echo "Carpeta creada correctamente"
+EOF
+
+  390  cat >> dia01/notas.md <<'EOF'
+
+## Codigos de salida y operadores logicos
+
+- El codigo 0 indica que un comando finalizo correctamente.
+- Un codigo diferente de 0 indica que ocurrio un error.
+- && ejecuta el siguiente comando solamente si el anterior tiene exito.
+- || ejecuta el siguiente comando solamente si el anterior falla.
+
+Se comprobaron estos comportamientos con true, false y mkdir.
+EOF
+
+  391  echo "===== DIRECTORIO ACTUAL ====="
+  392  pwd
+  393  echo "===== CAMBIO DE DIRECTORIO ====="
+  394  cd dia01/pruebas
+  395  pwd
+  396  echo "===== REGRESAR AL PROYECTO ====="
+  397  cd ../..
+  398  pwd
+  399  echo "===== COMPROBAR QUE CD ES UN BUILTIN ====="
+  400  type cd
+  401  echo "===== COMPROBAR COMANDOS EXTERNOS ====="
+  402  type ls
+  403  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 7: comprobar que cd es parte del shell
+pwd
+cd dia01/pruebas
+pwd
+cd ../..
+pwd
+type cd
+type ls
+EOF
+
+  404  cat >> dia01/notas.md <<'EOF'
+
+## cd como comando interno del shell
+
+Se comprobó que cd es un comando interno de Bash mediante type cd.
+
+El comando cambia el directorio de trabajo de la sesión actual. Esto requiere que sea ejecutado por el propio shell, ya que un programa externo no puede modificar el directorio de su proceso padre.
+
+También se comparó con ls, que es un comando externo.
+EOF
+
+  405  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 5: separar stdout y stderr
+ls /nonexistent dia01/pruebas > dia01/pruebas/salida.txt 2> dia01/pruebas/errores.txt
+ls /nonexistent dia01/pruebas > dia01/pruebas/salida_y_error.txt 2>&1
+
+# Ejercicio 6: codigos de salida y operadores logicos
+true
+echo $?
+false
+echo $?
+true && echo "El primer comando tuvo exito"
+false || echo "El primer comando fallo"
+mkdir -p dia01/pruebas/condicional && echo "Carpeta creada correctamente"
+
+# Ejercicio 7: cd como comando interno del shell
+pwd
+cd dia01/pruebas
+pwd
+cd ../..
+pwd
+type cd
+type -a ls
+EOF
+
+  406  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 5: Redireccion de stdout y stderr
+
+Se separaron las salidas normales y los errores usando > y 2>. Tambien se combinaron ambas salidas con 2>&1.
+
+## Ejercicio 6: Codigos de salida y operadores logicos
+
+Se comprobó que el codigo 0 representa exito y el codigo 1 representa fallo. Se practicaron los operadores && y || para ejecutar comandos dependiendo del resultado anterior.
+
+## Ejercicio 7: cd como comando interno
+
+Se comprobó que cd es un comando interno de Bash. Permite cambiar el directorio de trabajo de la sesion actual. Se comparó con ls mediante type.
+EOF
+
+  407  cat > dia01/comprobar_archivo.sh <<'EOF'
+#!/bin/bash
+
+if [ -f "$1" ]; then
+    echo "El archivo existe: $1"
+else
+    echo "El archivo no existe: $1"
+fi
+EOF
+
+  408  bash dia01/comprobar_archivo.sh dia01/pruebas/frutas.txt
+  409  bash dia01/comprobar_archivo.sh dia01/pruebas/no_existe.txt
+  410  # Guardar el ejercicio 8
+  411  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 8: comprobar si un archivo existe
+bash dia01/comprobar_archivo.sh dia01/pruebas/frutas.txt
+bash dia01/comprobar_archivo.sh dia01/pruebas/no_existe.txt
+EOF
+
+  412  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 8: Comprobar si un archivo existe
+
+Se creó un script que recibe un nombre de archivo como argumento y comprueba si existe mediante la condición -f. Se probaron un archivo existente y otro inexistente.
+EOF
+
+  413  # Ejercicio 9: dar permiso de ejecución
+  414  chmod +x dia01/comprobar_archivo.sh
+  415  # Consultar los permisos
+  416  ls -l dia01/comprobar_archivo.sh
+  417  # Ejecutar el script directamente
+  418  ./dia01/comprobar_archivo.sh dia01/pruebas/frutas.txt
+  419  ./dia01/comprobar_archivo.sh dia01/pruebas/no_existe.txt
+  420  # Guardar los comandos del ejercicio 9
+  421  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 9: dar permiso de ejecucion y ejecutar el script
+chmod +x dia01/comprobar_archivo.sh
+ls -l dia01/comprobar_archivo.sh
+./dia01/comprobar_archivo.sh dia01/pruebas/frutas.txt
+./dia01/comprobar_archivo.sh dia01/pruebas/no_existe.txt
+EOF
+
+  422  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 9: Permisos de ejecución con chmod
+
+Se utilizó chmod +x para otorgar permiso de ejecución al script comprobar_archivo.sh. Después se ejecutó directamente utilizando ./ y se verificaron los dos resultados.
+EOF
+
+  423  cat > dia01/depuracion.sh <<'EOF'
+#!/bin/bash
+
+set -x
+
+nombre="Victor"
+echo "Hola, $nombre"
+
+numero=10
+resultado=$((numero * 2))
+echo "El resultado es $resultado"
+
+set +x
+
+echo "La depuracion ha terminado"
+EOF
+
+  424  bash dia01/depuracion.sh
+  425  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 10: depuracion de scripts con set -x
+bash dia01/depuracion.sh
+EOF
+
+  426  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 10: Depuración con set -x
+
+Se creó un script que utiliza set -x para mostrar los comandos mientras Bash los ejecuta. Se utilizó set +x para desactivar la depuración.
+EOF
+
+  427  # Guardar el ejercicio 10
+  428  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 10: depuracion con set -x
+bash dia01/depuracion.sh
+EOF
+
+  429  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 10: Depuracion con set -x
+
+Se utilizó set -x para mostrar las instrucciones mientras Bash las ejecuta. Con set +x se desactivó la depuración.
+EOF
+
+  430  # Ejercicio 11: crear una copia con la fecha actual
+  431  cp dia01/pruebas/frutas.txt "dia01/pruebas/frutas_$(date +%Y-%m-%d).txt"
+  432  # Comprobar la copia
+  433  ls -l dia01/pruebas/frutas*
+  434  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 11: crear copia de seguridad con fecha
+cp dia01/pruebas/frutas.txt "dia01/pruebas/frutas_$(date +%Y-%m-%d).txt"
+EOF
+
+  435  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 11: Copia de seguridad con fecha
+
+Se utilizó cp para crear una copia del archivo frutas.txt. La sustitución de comandos $(date +%Y-%m-%d) permitió incluir la fecha actual en el nombre de la copia.
+EOF
+
+  436  cat > dia01/prueba_argumentos.sh <<'EOF'
+#!/bin/bash
+
+echo "Primer argumento: $1"
+echo "Todos los argumentos: $@"
+
+echo "Ejecutando el comando recibido:"
+"$@"
+EOF
+
+  437  chmod +x dia01/prueba_argumentos.sh
+  438  ./dia01/prueba_argumentos.sh echo Hola desde Bash
+  439  ./dia01/prueba_argumentos.sh pwd
+  440  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 12: recibir argumentos en un script
+./dia01/prueba_argumentos.sh echo Hola desde Bash
+./dia01/prueba_argumentos.sh pwd
+EOF
+
+  441  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 12: Argumentos en scripts Bash
+
+Se creó un script que recibe instrucciones mediante argumentos.
+- $1 representa el primer argumento.
+- $@ representa todos los argumentos recibidos.
+Se comprobó ejecutando echo y pwd desde el script.
+EOF
+
+  442  find ~ -type f -not -path '*/.git/*' | awk -F/ '{name=$NF; if (name ~ /\./ && name !~ /^\.[^.]+$/) {sub(/^.*\./,"",name); print "." name}}' | sort | uniq -c | sort -nr | head -n 5
+  443  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 12: recibir argumentos en un script
+./dia01/prueba_argumentos.sh echo Hola desde Bash
+./dia01/prueba_argumentos.sh pwd
+
+# Ejercicio 13: encontrar las cinco extensiones mas comunes
+find ~ -type f -not -path '*/.git/*' | awk -F/ '{name=$NF; if (name ~ /\./ && name !~ /^\.[^.]+$/) {sub(/^.*\./,"",name); print "." name}}' | sort | uniq -c | sort -nr | head -n 5
+EOF
+
+  444  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 12: Argumentos en scripts Bash
+
+Se creó un script que recibe instrucciones mediante argumentos. $1 representa el primer argumento y $@ representa todos los argumentos. Se probó con echo y pwd.
+
+## Ejercicio 13: Extensiones más comunes
+
+Se combinaron find, awk, sort, uniq y head mediante tuberías para buscar archivos, extraer sus extensiones, contar las repeticiones y mostrar las cinco más frecuentes.
+EOF
+
+  445  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 12: recibir argumentos en un script
+./dia01/prueba_argumentos.sh echo Hola desde Bash
+./dia01/prueba_argumentos.sh pwd
+
+# Ejercicio 13: encontrar las cinco extensiones mas comunes
+find ~ -type f -not -path '*/.git/*' 2>/dev/null | awk -F/ '{name=$NF; if (name ~ /\./ && name !~ /^\.[^.]+$/) {sub(/^.*\./,"",name); print "." name}}' | sort | uniq -c | sort -nr | head -n 5
+EOF
+
+  446  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 13: Extensiones más comunes
+
+Se combinaron find, awk, sort, uniq y head mediante tuberías para encontrar y contar las cinco extensiones más frecuentes en la carpeta personal. Algunas carpetas protegidas de Windows no permitieron el acceso.
+EOF
+
+  447  echo "===== ARCHIVOS SH Y NUMERO DE LINEAS ====="
+  448  find dia01 -type f -name "*.sh" -print0 | xargs -0 wc -l
+  449  echo "===== PRUEBA CON NOMBRE QUE CONTIENE ESPACIOS ====="
+  450  echo 'echo "Prueba de espacios"' > "dia01/prueba con espacios.sh"
+  451  find dia01 -type f -name "*.sh" -print0 | xargs -0 wc -l
+  452  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 14: buscar scripts y contar lineas con xargs
+find dia01 -type f -name "*.sh" -print0 | xargs -0 wc -l
+EOF
+
+  453  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 14: find y xargs
+
+Se combinaron find y xargs para localizar archivos .sh y contar sus líneas con wc -l. Se utilizaron -print0 y -0 para manejar correctamente nombres de archivos con espacios.
+EOF
+
+  454  curl -sL https://missing.csail.mit.edu/ | grep -oE '[0-9]+/[0-9]+/26:' | wc -l
+  455  curl -sL https://missing.csail.mit.edu/ | grep -oE '[0-9]+/[0-9]+/26' | head -n 12
+  456  curl -sL https://missing.csail.mit.edu/ | grep -oE '[0-9]+/[0-9]+/26' | wc -l
+  457  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 15: consultar las fechas de las clases de MIT
+curl -sL https://missing.csail.mit.edu/ | grep -oE '[0-9]+/[0-9]+/26' | wc -l
+EOF
+
+  458  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 15: Consulta web con curl
+
+Se utilizó curl -sL para descargar el contenido de la página oficial de MIT. Con grep se extrajeron las fechas de las clases de 2026 y con wc -l se contó el total. El resultado fue 9 clases.
+EOF
+
+  459  jq --version
+  460  jq --version
+  461  curl -sL https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json | jq -r '.[] | select(.version > 6) | .name'
+  462  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 16: filtrar datos JSON con jq
+curl -sL https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json | jq -r '.[] | select(.version > 6) | .name'
+EOF
+
+  463  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 16: Consulta de datos JSON con jq
+
+Se descargó un archivo JSON utilizando curl. Después, con jq se filtraron los registros cuya propiedad version es mayor que 6 y se mostraron sus nombres.
+EOF
+
+  464  printf 'a 50 x\nb 150 y\nc 200 z\n' | awk '$2 > 100 {print $3, $2, $1}'
+  465  history | awk '{$1=""; print substr($0,2)}' | sort | uniq -c | sort -nr | head -n 10
+  466  history | sed -E 's/^[[:space:]]*[0-9]+[[:space:]]*//' | awk 'NF' | sort | uniq -c | sort -nr | head -n 10
+  467  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 17: filtrar y reorganizar columnas con awk
+printf 'a 50 x\nb 150 y\nc 200 z\n' | awk '$2 > 100 {print $3, $2, $1}'
+
+# Ejercicio 18: encontrar los 10 comandos más utilizados
+history | sed -E 's/^[[:space:]]*[0-9]+[[:space:]]*//' | awk 'NF' | sort | uniq -c | sort -nr | head -n 10
+EOF
+
+  468  cat >> dia01/notas.md <<'EOF'
+
+## Ejercicio 17: Filtrar datos con awk
+
+Se utilizó awk para seleccionar las filas cuya segunda columna es mayor que 100. Después se imprimieron las columnas en el orden tercera, segunda y primera.
+
+## Ejercicio 18: Análisis del historial de comandos
+
+Se utilizó history para consultar los comandos ejecutados. Con sed se eliminaron los números del historial, awk descartó las líneas vacías, sort ordenó los comandos y uniq -c contó sus repeticiones. Finalmente, sort -nr organizó los resultados de mayor a menor y head mostró los primeros diez.
+
+La tubería de registros SSH explicada en la clase utiliza una idea similar: filtrar registros, extraer un dato, agruparlo, contar sus apariciones y ordenar los resultados.
+EOF
+
+  469  [ -d /tmp/mydir ] || mkdir /tmp/mydir
+  470  cat >> dia01/comandos.sh <<'EOF'
+
+# Ejercicio 6: crear /tmp/mydir solo si no existe
+[ -d /tmp/mydir ] || mkdir /tmp/mydir
+EOF
+
+  471  cat >> dia01/notas.md <<'EOF'
+
+Ajuste del ejercicio 6: se utilizó [ -d /tmp/mydir ] || mkdir /tmp/mydir para crear el directorio únicamente cuando todavía no existe.
+EOF
+
+  472  grep -n "Ejercicio" dia01/comandos.sh
+  473  grep -n "Ejercicio" dia01/notas.md
+  474  git status --short
+  475  ls -lah dia01/evidencias
+  476  find dia01 -maxdepth 2 -type f | sort
+  477  history > dia01/evidencias/04_historial_comandos.txt
