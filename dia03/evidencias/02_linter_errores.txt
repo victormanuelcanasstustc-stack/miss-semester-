@@ -1,0 +1,13 @@
+invalid-syntax: Simple statements must be separated by newlines or semicolons
+ --> dia01\pruebas\programa.py:1:11
+  |
+1 | Contenido de Python
+  |           ^^
+
+invalid-syntax: Simple statements must be separated by newlines or semicolons
+ --> dia01\pruebas\programa.py:1:14
+  |
+1 | Contenido de Python
+  |              ^^^^^^
+
+Found 2 errors.

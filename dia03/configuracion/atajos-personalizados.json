@@ -1,0 +1,6 @@
+[
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.action.debug.start"
+    }
+]

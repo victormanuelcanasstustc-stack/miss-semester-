@@ -1,0 +1,7 @@
+error: cannot parse: dia01\pruebas\programa.py:1:10
+    Contenido de Python
+             ^
+ParseError: bad input
+
+Oh no! \U0001f4a5 \U0001f494 \U0001f4a5
+1 file would fail to reformat.

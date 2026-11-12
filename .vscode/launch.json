@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Depurar programa Python",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/dia03/prueba_debug.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
