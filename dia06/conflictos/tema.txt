@@ -1,1 +1,1 @@
-Tema: fundamentos del control de versiones
+Tema: fundamentos del control de versiones y trabajo colaborativo con Git

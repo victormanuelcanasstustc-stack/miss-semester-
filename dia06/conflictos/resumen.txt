@@ -1,1 +1,1 @@
-Resumen: Git permite guardar el historial de un proyecto
+Resumen: Git permite guardar el historial de un proyecto, registrar cambios y resolver conflictos entre ramas

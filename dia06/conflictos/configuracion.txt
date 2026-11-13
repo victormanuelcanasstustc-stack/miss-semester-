@@ -1,1 +1,1 @@
-Modo: trabajo individual
+Modo: trabajo individual y desarrollo colaborativo con ramas
