@@ -1,0 +1,1 @@
+Resumen: Git permite controlar versiones
