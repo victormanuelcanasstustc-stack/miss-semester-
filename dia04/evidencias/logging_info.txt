@@ -1,0 +1,4 @@
+DEBUG: Iniciando el cálculo del promedio
+INFO: Se recibieron 2 notas
+DEBUG: Promedio calculado correctamente
+El promedio es: 4.25

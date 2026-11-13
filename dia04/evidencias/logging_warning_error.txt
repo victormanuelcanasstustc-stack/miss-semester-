@@ -1,0 +1,3 @@
+DEBUG: Iniciando el cálculo del promedio
+WARNING: La lista de notas está vacía
+ERROR: No fue posible calcular el promedio
