@@ -7,6 +7,7 @@ flowchart TB
     end
 
     subgraph COMMITS["Objetos commit"]
+        C7["8328789 - Actividad día 06"]
         C6["b462fc8 - Fusion"]
         C5["41c4969 - Rama alternativa"]
         C4["79cf3ca - Rama principal"]
@@ -28,11 +29,12 @@ flowchart TB
         B3["programa_optimizado.py"]
     end
 
-    MAIN --> C2
-    ORIGIN --> C2
-    ACT --> C6
+    MAIN --> C7
+    ORIGIN --> C7
+    ACT --> C7
     ALT --> C5
 
+    C7 -->|padre| C6
     C6 -->|padre 1| C4
     C6 -->|padre 2| C5
     C4 --> C3
