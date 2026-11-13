@@ -1,1 +1,1 @@
-Modo: desarrollo
+Modo: desarrollo colaborativo con ramas

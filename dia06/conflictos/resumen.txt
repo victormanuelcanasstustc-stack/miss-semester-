@@ -1,1 +1,1 @@
-Resumen: Git permite controlar versiones
+Resumen: Git permite registrar cambios y resolver conflictos entre ramas

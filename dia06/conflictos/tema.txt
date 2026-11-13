@@ -1,1 +1,1 @@
-Tema: introduccion a Git
+Tema: Git y trabajo colaborativo
