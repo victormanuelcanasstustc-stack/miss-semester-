@@ -1,7 +1,7 @@
 def calcular_promedio(notas):
     if not notas:
         return 0
-    return sum(notas) / len(notas)
+    return sum(notas) / (len(notas) - 1)
 
 
 if __name__ == "__main__":
