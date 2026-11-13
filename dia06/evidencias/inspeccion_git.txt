@@ -1,0 +1,105 @@
+===== RAMAS =====
+* actividad6-rama     6a37f73 Completar actividad del dia 05
+  main                6a37f73 [origin/main] Completar actividad del dia 05
+  remotes/origin/main 6a37f73 Completar actividad del dia 05
+
+===== COMMIT 6a37f73 =====
+tree a6aa8b3940174e4d338ec60a17c094436a552c09
+parent 9f3eb2a1afe8cbfaf6860af76d8b09e7781c1a4a
+author Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794539659 -0500
+committer Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794539659 -0500
+
+Completar actividad del dia 05
+
+===== COMMIT 9f3eb2a =====
+tree c60da1382974b9f1e95ec18c825319a8bd87aff4
+parent fc96e67b8a7219dfcda88db69457b5f2a8b5dd8f
+author Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794537393 -0500
+committer Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794537393 -0500
+
+Completar actividad del dia 04
+
+===== COMMIT fc96e67 =====
+tree 5b29e85ebb8b49c48dc88d0c56fb9b54849e2a46
+parent 15e54a796c6eb54f182ba3b3709f16abc3c7f507
+author Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794517208 -0500
+committer Victor Manuel Cañas Salazar <victor.manuel.canas.stu.stc@gmail.com> 1794517208 -0500
+
+Completar actividad del dia 03
+
+===== ARBOL PRINCIPAL =====
+040000 tree 712f5e5b6049b0d1ab73b57cac348f855a45027b	.vscode
+040000 tree 6c2649ae116b6fd497081b712355a990cd213b5c	dia01
+040000 tree 05e0e85203d4fb4fabf6e25512ecc9581b1c9fd7	dia02
+040000 tree 0003baa0a61e5bdcf33fa88d55572334656f6674	dia03
+040000 tree 51b6859590e20e37a73e3bf825a3f13c5c0c61c5	dia04
+040000 tree ac0bd3e74e5fb6a2ecdcd48527eb5397f05eaf45	dia05
+
+===== ARCHIVOS Y OBJETOS =====
+100644 blob 7cae59fa13ca7a45cb67c1fa1ecf7a83971aa6e5	.vscode/launch.json
+100644 blob 380e7265e510f830b251921eb37d0f73b4434e38	.vscode/settings.json
+100644 blob 1a875e63e81ad1d57766bf8b689e4497497d7c26	dia01/comandos.sh
+100644 blob f69a3d60fa7fc2863644dad9632bea175740b8fb	dia01/comprobar_archivo.sh
+100644 blob 3cf9994999a826fa89d703c1c2115cf8872b1537	dia01/depuracion.sh
+100644 blob 28ac95b5c61b7ad81a601168dad06d500479b2d2	dia01/evidencias/01_creacion_archivos.png
+100644 blob 938abfbf9af097cf4bea35ea10e9149af447e017	dia01/evidencias/02_archivos_mas_grandes.png
+100644 blob fc4582b2467c8a5b2257cd1651a31383845da93d	dia01/evidencias/03_conteo_extensiones.png
+100644 blob 9dbbb421084f9580994312190b6ddb3d6e580aaa	dia01/evidencias/04_historial_comandos.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/a.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/b.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/c.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/file1.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/file10.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/file2.txt
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	dia01/glob_pruebas/imagen.png
+100644 blob dc40ca24232f4d8ac29b4c5a0b3a11061995f1c5	dia01/notas.md
+100644 blob 5b79f0475f2bebf4ef5e3d765705bcbe0f788de4	dia01/prueba con espacios.sh
+100644 blob 4218a0ac92eb3eade3dfb7a14c9c54b2b701d667	dia01/prueba_argumentos.sh
+100644 blob 0a67cb55ad96d644483f3a0a6d97c0b3543453e5	dia01/pruebas/app.js
+100644 blob c5488978406a4480d4b2d8b19f98f498de2b4890	dia01/pruebas/errores.txt
+100644 blob a82dd81d6dafae50cfae9711c828147bfe11583b	dia01/pruebas/frutas.txt
+100644 blob a82dd81d6dafae50cfae9711c828147bfe11583b	dia01/pruebas/frutas_2026-11-12.txt
+100644 blob a7ca9b37bd8cd8b2a1e9306e367bbbe73d7e4519	dia01/pruebas/frutas_ordenadas.txt
+100644 blob 32fe9956c0f71270f11f3d83b445c224eae29983	dia01/pruebas/mediano.txt
+100644 blob 9b97b191a655931d69b3ad18f6dbf50e671e59b8	dia01/pruebas/pequeno.txt
+100644 blob 53c0493abc3da108c703c4ff11e661f6fc608f53	dia01/pruebas/programa.py
+100644 blob 15560a066db5a65b428e9b5b44e7656aa9d8ffd7	dia01/pruebas/salida.txt
+100644 blob 0ed87c401911a6862a7a2db2eac4760af7408ddb	dia01/pruebas/salida_y_error.txt
+100644 blob b8919474b164b32625e7ef4cb27ad29dc402ac5b	dia01/pruebas/subcarpeta/grande.txt
+100644 blob 63db6088b9a90c52afe54f00cf7da85d88f9932f	dia01/pruebas/subcarpeta/otro.txt
+100644 blob 9d53af258e16c8ed1e3678c1f94c75b1c24663f2	dia01/pruebas/texto_busqueda.txt
+100644 blob aa324a33f9473fdcffaf9622d93ef9021f21dec2	dia02/aliases.sh
+100644 blob 302e250af25a6591c536cba7bb0b31d0ecbf0fc7	dia02/comandos.sh
+100644 blob e032fb580b51959fc66412a3176faa617228a394	dia02/evidencias/03_tmux_tres_paneles.png
+100644 blob 95c54f80067ab247064f0144b017e031bb2e17b1	dia02/notas.md
+100644 blob 45c698d9176d6ff517bbd1a3cacbafb1bdf149ac	dia03/atajos.md
+100644 blob 85ea4935f10dcb46edbf544268a564abac85e3ab	dia03/configuracion/atajos-personalizados.json
+100644 blob 7cae59fa13ca7a45cb67c1fa1ecf7a83971aa6e5	dia03/configuracion/launch.json
+100644 blob 380e7265e510f830b251921eb37d0f73b4434e38	dia03/configuracion/settings.json
+100644 blob 2738f47e83f74ad1109dc1a43300894380d24f5f	dia03/evidencias/01_configuracion_vscode.png
+100644 blob 502f733a616b698b8533bda7fcb1311d83c22aca	dia03/evidencias/02_linter_errores.png
+100644 blob 1401b640d95aa3b2c803d3f6df054ddb117590bc	dia03/evidencias/02_linter_errores.txt
+100644 blob de94fea00cf33c5eddcf2c1fad7ec08f60e63dec	dia03/evidencias/03_formateador_errores.txt
+100644 blob 094817b37f8492d31e1261d6d4981e99af6cb270	dia03/evidencias/04_debugger.png
+100644 blob 15648d5a424b2c23dea65f988e37a7d3623cdb11	dia03/notas.md
+100644 blob 48eeb49a7f6b4732350ed634a99bab48de344835	dia03/prueba_debug.py
+100644 blob e1f73a7f1bcf1bf3c0c38b07c843e752d0fbbc8d	dia03/video/navegacion_sin_raton.mp4
+100644 blob f3158f212677272f487d69205642ddce2fb31e55	dia04/bug_promedio.py
+100644 blob c845310ec954dd0e4c1e5c3637fa947122942c86	dia04/evidencias/01_variables_debugger.png
+100644 blob 57271354434071e7ce4684ece85264bad17a472a	dia04/evidencias/02_excepcion_debugger.png
+100644 blob 558b4b1333b88665a2eb532bb32134c96460e1d2	dia04/evidencias/logging_info.txt
+100644 blob 55373216d7dd41dbe4feb5454de4419b0ecc846e	dia04/evidencias/logging_warning_error.txt
+100644 blob 5351c6a9bb60e503ac2291ebbaa3342302f3f822	dia04/investigacion.md
+100644 blob ffb96d75ed5fd1a1ac906f4b68ccda6d38ab421b	dia05/datos.txt
+100644 blob 90461b0670b4f2bef93d95ce447fb4a9dea46af3	dia05/evidencias/perfil_lento.txt
+100644 blob 1cc577fd8fefb3e8720b6c87f4d040e38a5f664c	dia05/evidencias/perfil_optimizado.txt
+100644 blob 5d8f10a8f3345621bfde0fc9102e1b6e3a60a5bf	dia05/notas.md
+100644 blob acd21da5cd5096fd5846a5c029747888ec9da42c	dia05/programa_lento.py
+100644 blob 88c09c443a4a764163d45c80be0935de85d1250b	dia05/programa_optimizado.py
+
+===== CONTENIDO DEL ARBOL DIA05 =====
+100644 blob ffb96d75ed5fd1a1ac906f4b68ccda6d38ab421b	datos.txt
+040000 tree 9b99344cce6235b5d778cab996783d47d1be634c	evidencias
+100644 blob 5d8f10a8f3345621bfde0fc9102e1b6e3a60a5bf	notas.md
+100644 blob acd21da5cd5096fd5846a5c029747888ec9da42c	programa_lento.py
+100644 blob 88c09c443a4a764163d45c80be0935de85d1250b	programa_optimizado.py
