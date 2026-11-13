@@ -1,1 +1,1 @@
-Resumen: Git permite controlar versiones
+Resumen: Git permite guardar el historial de un proyecto

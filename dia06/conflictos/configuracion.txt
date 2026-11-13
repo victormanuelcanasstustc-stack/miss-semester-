@@ -1,1 +1,1 @@
-Modo: desarrollo
+Modo: trabajo individual
