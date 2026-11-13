@@ -1,0 +1,9 @@
+PRACTICA 1: MEJORA DEL README
+79ef1aa Mejorar documentacion del proyecto de IA
+ dia08/README.md | 71 +++++++++++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 51 insertions(+), 20 deletions(-)
+
+PRACTICA 2: DOCUMENTACION DE DECISIONES TECNICAS
+fe5d4e2 Documentar decisiones tecnicas del proyecto de IA
+ dia08/DECISIONES_TECNICAS.md | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
