@@ -1,0 +1,10 @@
+git bisect start
+# status: waiting for both good and bad commits
+# bad: [b85f5607020bb6f188f10acd0d40058df2279021] Introducir error en el calculo del promedio
+git bisect bad b85f5607020bb6f188f10acd0d40058df2279021
+# status: waiting for good commit(s), bad commit known
+# good: [04fd03f875e9384227253652b8625f939015da07] Agregar calculadora de promedio para pruebas
+git bisect good 04fd03f875e9384227253652b8625f939015da07
+# good: [525381f55f603fd5e0ae9a4feaddfc784ac7b17a] Agregar pruebas automaticas del promedio
+git bisect good 525381f55f603fd5e0ae9a4feaddfc784ac7b17a
+# first bad commit: [b85f5607020bb6f188f10acd0d40058df2279021] Introducir error en el calculo del promedio

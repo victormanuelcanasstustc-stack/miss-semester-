@@ -1,0 +1,17 @@
+RESULTADO DE GIT BISECT
+
+Commit inicial correcto: 04fd03f
+Commit intermedio probado: 525381f
+Commit defectuoso identificado: b85f560
+
+Procedimiento:
+1. git bisect start
+2. git bisect bad
+3. git bisect good 04fd03f
+4. Se probaron las pruebas automaticas en 525381f.
+5. El commit intermedio paso las pruebas.
+6. Se ejecuto git bisect good.
+7. Git identifico b85f560 como el primer commit defectuoso.
+
+Despues se corrigio la funcion calcular_promedio y las pruebas
+automaticas finalizaron correctamente.
