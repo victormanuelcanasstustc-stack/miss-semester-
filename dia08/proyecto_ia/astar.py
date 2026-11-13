@@ -38,9 +38,10 @@ def reconstruir(camino, actual):
 
 
 def astar(laberinto, inicio, objetivo, heuristica):
-    """
-    Implementación del algoritmo A*.
-    """
+    """Implementación del algoritmo A*."""
+    if not laberinto or not laberinto[0]:
+        raise ValueError("El laberinto no puede estar vacío.")
+
 
     filas = len(laberinto)
     columnas = len(laberinto[0])

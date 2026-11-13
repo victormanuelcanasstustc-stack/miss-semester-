@@ -33,6 +33,10 @@ class TestAStar(unittest.TestCase):
         self.assertEqual(ruta[0], (0, 0))
         self.assertEqual(ruta[-1], (5, 5))
 
+    def test_astar_laberinto_vacio(self):
+        with self.assertRaises(ValueError):
+            astar([], (0, 0), (1, 1), manhattan)
+
 
 if __name__ == "__main__":
     unittest.main()
