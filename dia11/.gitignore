@@ -1,0 +1,22 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Construcción y distribución
+build/
+dist/
+
+# Archivos del sistema y editor
+.DS_Store
+Thumbs.db
+*.log
+!evidencias/*.log

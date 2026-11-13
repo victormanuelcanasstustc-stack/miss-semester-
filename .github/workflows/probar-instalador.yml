@@ -1,0 +1,42 @@
+name: Probar instalador del entorno
+
+on:
+  push:
+    branches:
+      - actividad7-rama
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  probar-instalacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar sintaxis del instalador
+        run: bash -n dia11/instalar_entorno.sh
+
+      - name: Ejecutar instalador
+        run: bash dia11/instalar_entorno.sh
+
+      - name: Verificar instalación
+        run: |
+          source .venv/bin/activate
+          python --version
+          python -m pip check
+          ruff --version
+          python -c "import numpy; print('NumPy:', numpy.__version__)"

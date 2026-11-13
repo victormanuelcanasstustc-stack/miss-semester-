@@ -1,0 +1,5 @@
+525381f Agregar pruebas automaticas del promedio
+04fd03f Agregar calculadora de promedio para pruebas
+dc261d5 Actualizar diagrama con referencias finales
+8328789 Completar actividad del dia 06
+b462fc8 Resolver conflictos de fusion en tres archivos

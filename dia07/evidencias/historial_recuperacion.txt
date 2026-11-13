@@ -1,0 +1,5 @@
+0413f3c Crear commit para demostrar recuperacion con reflog
+b85f560 Introducir error en el calculo del promedio
+525381f Agregar pruebas automaticas del promedio
+04fd03f Agregar calculadora de promedio para pruebas
+dc261d5 Actualizar diagrama con referencias finales

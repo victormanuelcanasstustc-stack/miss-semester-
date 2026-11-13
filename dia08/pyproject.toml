@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proyecto-ia-busqueda"
+version = "1.0.0"
+description = "Proyecto académico de inteligencia artificial con Connect 4 y búsqueda A*."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy==2.4.6"
+]
+
+[project.scripts]
+proyecto-ia = "proyecto_ia.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["proyecto_ia*"]

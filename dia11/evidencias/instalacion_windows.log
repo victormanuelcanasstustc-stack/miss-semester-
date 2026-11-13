@@ -1,0 +1,89 @@
+
+[17:56:04] Detectando el sistema operativo...
+Plataforma: windows-git-bash
+
+[17:56:04] Comprobando e instalando herramientas necesarias...
+Git: git version 2.54.0.windows.1
+Python: Python 3.11.9
+Node: v24.14.1
+npm: 11.11.0
+
+[17:56:06] Creando el entorno virtual del repositorio...
+
+[17:56:06] Actualizando pip e instalando el proyecto y Ruff...
+Requirement already satisfied: pip in .\.venv\Lib\site-packages (26.3)
+Obtaining file:///C:/Users/acer/Desktop/miss-semester-/dia08
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: ruff in .\.venv\Lib\site-packages (0.17.5)
+Requirement already satisfied: numpy==2.4.6 in .\.venv\Lib\site-packages (from proyecto-ia-busqueda==1.0.0) (2.4.6)
+Building wheels for collected packages: proyecto-ia-busqueda
+  Building editable for proyecto-ia-busqueda (pyproject.toml): started
+  Building editable for proyecto-ia-busqueda (pyproject.toml): finished with status 'done'
+  C:\Users\acer\AppData\Local\Temp\pip-build-env-do26n_hw\overlay\Lib\site-packages\setuptools\command\editable_wheel.py:354: BuildBackendWarning: Editable installation.
+  !!
+  
+          ********************************************************************************
+          Please be careful with folders in your working directory with the same
+          name as your package as they may take precedence during imports.
+          ********************************************************************************
+  
+  !!
+    with strategy, WheelFile(wheel_path, "w") as wheel_obj:
+  Created wheel for proyecto-ia-busqueda: filename=proyecto_ia_busqueda-1.0.0-0.editable-py3-none-any.whl size=4581 sha256=e1e26ee2bc31356e05aa64fa8e1874fb05e8251df8a0c53de3aa9910d9f23a0e
+  Stored in directory: C:\Users\acer\AppData\Local\Temp\pip-ephem-wheel-cache-mmgntaaq\wheels\9d\19\82\d9fe3df0b98cf749e9d3ccccd334ef60ae818066a11e7e47ce
+Successfully built proyecto-ia-busqueda
+Installing collected packages: proyecto-ia-busqueda
+  Attempting uninstall: proyecto-ia-busqueda
+    Found existing installation: proyecto-ia-busqueda 1.0.0
+    Uninstalling proyecto-ia-busqueda-1.0.0:
+      Successfully uninstalled proyecto-ia-busqueda-1.0.0
+Successfully installed proyecto-ia-busqueda-1.0.0
+
+[17:56:15] Comprobando Ruff...
+ruff 0.17.5
+
+[17:56:15] Configurando alias de Bash sin duplicarlos...
+
+[17:56:15] El bloque de alias ya existe; no se duplicó.
+
+[17:56:15] Configurando SSH para GitHub si existe una llave...
+
+[17:56:15] Ya existe una configuración para github.com; se conservó.
+
+[17:56:15] Comprobando la configuración de VS Code...
+Installing extensions...
+(node:3316) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `Code --trace-deprecation ...` to show where the warning was created)
+Extension 'ms-python.python' is already installed.
+Installing extensions...
+(node:7828) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `Code --trace-deprecation ...` to show where the warning was created)
+Extension 'ms-python.vscode-pylance' is already installed.
+Installing extensions...
+(node:5404) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `Code --trace-deprecation ...` to show where the warning was created)
+Extension 'ms-python.black-formatter' is already installed.
+Installing extensions...
+(node:11908) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `Code --trace-deprecation ...` to show where the warning was created)
+Extension 'charliermarsh.ruff' is already installed.
+
+[17:56:22] Extensiones de VS Code comprobadas/instaladas.
+
+[17:56:22] Verificando la instalación del proyecto...
+NumPy: 2.4.6
+No broken requirements found.
+
+[17:56:23] Instalación finalizada.
+
+Entorno: /c/Users/acer/Desktop/miss-semester-/.venv
+Repositorio: /c/Users/acer/Desktop/miss-semester-
+Para cargar los alias en esta terminal, ejecuta: source ~/.bashrc
+Para activar el entorno virtual en otra terminal, ejecuta: source .venv/bin/activate (Linux) o source .venv/Scripts/activate (Git Bash en Windows).

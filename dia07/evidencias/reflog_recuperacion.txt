@@ -1,0 +1,10 @@
+0413f3c HEAD@{0}: cherry-pick: Crear commit para demostrar recuperacion con reflog
+b85f560 HEAD@{1}: reset: moving to HEAD~1
+7c959ad HEAD@{2}: commit: Crear commit para demostrar recuperacion con reflog
+b85f560 HEAD@{3}: checkout: moving from 525381f55f603fd5e0ae9a4feaddfc784ac7b17a to actividad7-rama
+525381f HEAD@{4}: checkout: moving from actividad7-rama to 525381f55f603fd5e0ae9a4feaddfc784ac7b17a
+b85f560 HEAD@{5}: commit: Introducir error en el calculo del promedio
+525381f HEAD@{6}: commit: Agregar pruebas automaticas del promedio
+04fd03f HEAD@{7}: commit: Agregar calculadora de promedio para pruebas
+dc261d5 HEAD@{8}: checkout: moving from main to actividad7-rama
+dc261d5 HEAD@{9}: commit: Actualizar diagrama con referencias finales
