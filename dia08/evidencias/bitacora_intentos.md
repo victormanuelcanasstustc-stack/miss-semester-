@@ -48,4 +48,23 @@ Registrar los problemas encontrados durante el empaquetado del proyecto de intel
 
 Los problemas encontrados permitieron mejorar la organización, configuración y documentación del proyecto. Se logró empaquetarlo correctamente y ejecutar sus pruebas dentro de un entorno virtual independiente.
 
-Queda pendiente realizar la prueba final desde una instalación limpia, siguiendo únicamente las instrucciones del README.
+La prueba de instalación limpia se realizó satisfactoriamente. Los resultados y evidencias se documentan en el apartado 5.
+
+### 5. Prueba de instalación limpia desde GitHub
+
+Se realizó una clonación independiente del repositorio desde la rama `actividad7-rama`, en una carpeta diferente al proyecto original.
+
+Se creó un entorno virtual nuevo con Python 3.11.9 y se siguieron las instrucciones de instalación del README.
+
+**Resultados obtenidos:**
+
+- Actualización de pip a la versión 26.3: exitosa.
+- Instalación del paquete `proyecto-ia-busqueda==1.0.0`: exitosa.
+- Instalación automática de NumPy 2.4.6: exitosa.
+- Ejecución mediante `python -m proyecto_ia`: exitosa.
+- Ejecución mediante `proyecto-ia`: exitosa.
+- Pruebas automáticas: 4 de 4 aprobadas.
+
+**Conclusión:**
+
+La prueba de instalación limpia se completó sin errores ni intervención adicional. Las instrucciones del README permitieron instalar, ejecutar y probar el proyecto desde una copia recién clonada del repositorio.
